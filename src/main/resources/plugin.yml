@@ -2,3 +2,7 @@ name: RaidPL
 version: '${project.version}'
 main: com.atosss.raidpl.RaidPL
 api-version: '1.20'
+commands:
+  raid:
+    description: Start een raid in een opgegeven regio.
+    usage: /raid <region>

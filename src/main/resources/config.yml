@@ -1,0 +1,4 @@
+# Configuratie voor de RaidPL plugin
+default-mobs:
+  - Skeleton Knight
+  # Voeg hier meer mobs toe als dat nodig is

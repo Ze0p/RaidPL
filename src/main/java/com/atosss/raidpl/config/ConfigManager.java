@@ -1,21 +1,36 @@
 package com.atosss.raidpl.config;
 
+import com.atosss.raidpl.RaidPL;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.configuration.file.YamlConfiguration;
+import java.io.File;
 
 public class ConfigManager {
-    private final JavaPlugin plugin;
+    private final RaidPL plugin;
     private FileConfiguration config;
+    private File configFile;
 
-    public ConfigManager(JavaPlugin plugin) {
+    public ConfigManager(RaidPL plugin) {
         this.plugin = plugin;
-        this.config = plugin.getConfig();
-        // Load other configurations
+        this.configFile = new File(plugin.getDataFolder(), "config.yml");
+    }
+
+    public void loadConfig() {
+        if (!configFile.exists()) {
+            plugin.saveDefaultConfig();
+        }
+        config = YamlConfiguration.loadConfiguration(configFile);
     }
 
     public FileConfiguration getConfig() {
         return config;
     }
+    public int getDefaultWaves() {
+        return config.getInt("default-waves");
+    }
 
-    // Methods to access and modify configurations
+    public int getDefaultWaveTime() {
+        return config.getInt("default-wave-time");
+    }
+
 }
