@@ -1,0 +1,4 @@
+name: RaidPL
+version: '${project.version}'
+main: com.atosss.raidpl.RaidPL
+api-version: '1.20'
